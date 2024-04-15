@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh;">
+        <h1 style="font-size: 24px; margin-bottom: 20px;font-weight: bolder;color: blue;">Patient List</h1>
+        <ul style="list-style-type: none; padding: 0; width: 100%;">
+            {% for patient in patients %}
+                <li style="margin-bottom: 10px; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9; width: 100%;">
+                    <span style="font-weight: bold;">{{ patient.name }}</span>
+                    <span>- {{ patient.age }} years old</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

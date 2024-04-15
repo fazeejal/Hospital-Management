@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Admin Dashboard</title>
+    <style>
+        .dashboard-section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: darkcyan;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+        }
+        .stat-item {
+            width: 30%;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .stat-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1 style="color: darkblue; font-weight: bolder;">Care Hospital</h1>
+    </div>
+    <div style="margin-top: 30px;">
+        <p><span style="color:indigo;">Care Hospital</span> is a leading healthcare institution committed to providing exceptional medical services and compassionate care to our patients. With state-of-the-art facilities and a team of dedicated healthcare professionals, we strive to ensure the well-being and recovery of every individual who walks through our doors. Our mission is to deliver high-quality, personalized healthcare that meets the diverse needs of our community, promoting health and wellness at every stage of life.</p>
+    </div>
+    
+
+    <!-- Patient Management Section -->
+    <div class="dashboard-section">
+        <div class="section-title">Patient Management</div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">Total Patients</div>
+                <div class="stat-value">{{ total_patients }}</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">New Patients Today</div>
+                <div class="stat-value">12</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Pending Appointments</div>
+                <div class="stat-value">5</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doctor Management Section -->
+    <div class="dashboard-section">
+        <div class="section-title">Doctor Management</div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">Total Doctors</div>
+                <div class="stat-value">{{ total_doctors }}</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Available Doctors</div>
+                <div class="stat-value">35</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Upcoming Surgeries</div>
+                <div class="stat-value">3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appointments Section -->
+    <div class="dashboard-section">
+        <div class="section-title">Appointments</div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">Total Appointments</div>
+                <div class="stat-value">{{ total_appointments }}</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Completed Appointments</div>
+                <div class="stat-value">120</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Pending Appointments</div>
+                <div class="stat-value">30</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}

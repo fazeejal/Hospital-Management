@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div style="text-align: center;">
+    <h1 style="font-weight: bolder;color: darkgreen;">Welcome to Admin Dashboard</h1>
+</div>
+
+<div class="container">
+    <h2 style="text-align: center;">Doctors</h2>
+    <table class="table" style="background-color: lavender;">
+        <thead>
+            <tr>
+                <th>Doctor Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+                {% if doctor.status == 'approved' %}
+                    <tr>
+                        <td>Dr.{{ doctor.name }}</td>
+                        <td>
+                            <form action="{% url 'delete_doctor' doctor.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<div class="container" style="background-color: lavenderblush;">
+    <h2 style="text-align: center;">Patients</h2>
+    <ul style="list-style-type: none; padding: 0; text-align: center;">
+        {% for patient in patients %}
+            <li style="margin-bottom: 10px;">
+                <span>{{ patient.name }}</span>
+                <form action="{% url 'delete_patient' patient.id %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="container" style="background-color: lavender;">
+    <h2 style="text-align: center;">Doctor Requests</h2>
+    <ul style="list-style-type: none; padding: 0; text-align: center;">
+        {% for doctor in doctor_requests %}
+            <li style="margin-bottom: 10px;">
+                <span>{{ doctor.name }}</span>
+                <form action="{% url 'accept_doctor' doctor.id %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                </form>
+                <form action="{% url 'reject_doctor' doctor.id %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                </form>
+                <!-- Include admin_decision here if needed -->
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+    <style>
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .accept-button {
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+    </style>
+{% endblock %}

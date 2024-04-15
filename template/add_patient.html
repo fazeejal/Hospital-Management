@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh;">
+        <h1 style="font-size: 24px; margin-bottom: 20px; font-weight: bolder; color: blue;">Add Patient</h1>
+        <form method="post" style="width: 100%; max-width: 400px;">
+            {% csrf_token %}
+            <div style="margin-bottom: 10px;">
+                <label for="id_name" style="display: block; margin-bottom: 5px; font-weight: bold;">Name:</label>
+                {{ form.name }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_age" style="display: block; margin-bottom: 5px; font-weight: bold;">Age:</label>
+                {{ form.age }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_gender" style="display: block; margin-bottom: 5px; font-weight: bold;">Gender:</label>
+                {{ form.gender }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_contact_number" style="display: block; margin-bottom: 5px; font-weight: bold;">Contact Number:</label>
+                {{ form.contact_number }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_address" style="display: block; margin-bottom: 5px; font-weight: bold;">Address:</label>
+                {{ form.address }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_medical_history" style="display: block; margin-bottom: 5px; font-weight: bold;">Medical History:</label>
+                {{ form.medical_history }}
+            </div>
+            <button type="submit" style="padding: 8px 16px; background-color: #007bff; color: #fff; border: none; cursor: pointer;">Submit</button>
+        </form>
+    </div>
+{% endblock %}

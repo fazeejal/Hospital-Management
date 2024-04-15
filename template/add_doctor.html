@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh;">
+        <h1 style="font-size: 24px; margin-bottom: 20px;">Add Doctor</h1>
+        <form method="post" style="width: 100%; max-width: 400px;">
+            {% csrf_token %}
+            <div style="margin-bottom: 10px;">
+                <label for="id_name" style="display: block; margin-bottom: 5px;">Name:</label>
+                {{ form.name }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_username" style="display: block; margin-bottom: 5px;">Username:</label>
+                {{ form.username }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_password" style="display: block; margin-bottom: 5px;">Password:</label>
+                {{ form.password }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_specialization" style="display: block; margin-bottom: 5px;">Specialization:</label>
+                {{ form.specialization }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_contact_number" style="display: block; margin-bottom: 5px;">Contact Number:</label>
+                {{ form.contact_number }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_is_available" style="display: block; margin-bottom: 5px;">Is Available:</label>
+                {{ form.is_available }}
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="id_status" style="display: block; margin-bottom: 5px;">Status:</label>
+                {{ form.status }}
+            </div>
+            
+            <button type="submit" style="padding: 8px 16px; background-color: #007bff; color: #fff; border: none; cursor: pointer;">Submit</button>
+        </form>
+    </div>
+{% endblock %}

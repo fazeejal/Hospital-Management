@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Appointment</title>
+</head>
+<body>
+    <h1>Add Appointment</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+{% endblock %}
